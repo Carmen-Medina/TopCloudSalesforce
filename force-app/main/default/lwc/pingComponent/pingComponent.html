@@ -1,5 +1,13 @@
 <template>
     <lightning-card>
+        <lightning-record-form
+            record-id={objectID}
+            object-api-name={objectName}
+            layout-type="Full"
+            columns="2"
+            mode="readonly"
+        >
+        </lightning-record-form>
         <div class="slds-align_absolute-center">
             <lightning-button variant="brand" label="Close Ping" title="Primary action" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
             <lightning-button variant="brand" label="Create Task" title="Primary action" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
