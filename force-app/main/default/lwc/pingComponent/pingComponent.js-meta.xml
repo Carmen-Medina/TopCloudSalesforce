@@ -16,7 +16,7 @@
         </targetConfig>
         <targetConfig targets="lightning__HomePage,lightning__RecordPage,lightning__AppPage">
             <property name="experience" type="Boolean" default="false" label="Experience"/>
-            <property name="nameComponent" type="String" default=" "/>
+            <property name="nameComponent" type="String" datasource="Tag, Track, Ping" default="ping"/>
         </targetConfig>
     </targetConfigs>
 </LightningComponentBundle>
