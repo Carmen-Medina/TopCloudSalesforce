@@ -1,16 +1,34 @@
 <template>
     <lightning-card>
-        <lightning-record-form
-            record-id={objectID}
-            object-api-name={objectName}
-            layout-type="Full"
-            columns="2"
-            mode="readonly"
-        >
-        </lightning-record-form>
-        <div class="slds-align_absolute-center">
-            <lightning-button variant="brand" label="Close Ping" title="Primary action" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
-            <lightning-button variant="brand" label="Create Task" title="Primary action" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+        <div class="slds-p-horizontal_large">
+            <template if:true={isTag}>
+                <div class="slds-p-bottom_large">
+                    <lightning-combobox
+                        name="Tag"
+                        label="Chose a tag"
+                        options={records}
+                        onchange={handleChange}
+                    >
+                    </lightning-combobox>
+                </div>
+            </template>
+            <template if:true={objectID}>
+                <lightning-record-form
+                    record-id={objectID}
+                    object-api-name={objectName}
+                    layout-type="Full"
+                    columns="2"
+                    mode="readonly"
+                >
+                </lightning-record-form>
+                <div class="slds-align_absolute-center slds-p-vertical_large">
+                    <lightning-button variant="brand" label="Create task" title="Primary action" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+                    <c-convert-button api-name = {objectName}>
+                    </c-convert-button>
+                    <c-close-button api-name = {objectName}>
+                    </c-close-button>
+                </div>
+            </template>
         </div>
     </lightning-card>
 </template>
