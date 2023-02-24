@@ -31,6 +31,10 @@ export default class PingComponent extends LightningElement {
         return this.nameComponent === 'Ping';
     }
 
+    get isTagPicklistVisible() {
+        return this.isTag && this.records.length > 0;
+    }
+
     get pastDueMessage() {
         return this.nameComponent + ' Past Due. Please Close or Convert this '+this.nameComponent+' on priority';
     }
