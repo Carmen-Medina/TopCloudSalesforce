@@ -1,6 +1,11 @@
 <template>
     <lightning-card>
         <div class="slds-p-horizontal_large">
+            <template if:true={isPastDueMessageVisible}>
+                <div class="slds-theme_error slds-p-around_x-small slds-text-align_center">
+                    <h1>{pastDueMessage}</h1>
+                </div>
+            </template>
             <template if:true={isTag}>
                 <div class="slds-p-bottom_large">
                     <lightning-combobox
@@ -22,11 +27,16 @@
                 >
                 </lightning-record-form>
                 <div class="slds-align_absolute-center slds-p-vertical_large">
-                    <lightning-button variant="brand" label="Create task" title="Primary action" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
-                    <c-convert-button api-name = {objectName}>
+                    <c-convert-button api-name = {objectName} record-id = {recordId}>
                     </c-convert-button>
                     <c-close-button api-name = {objectName}>
                     </c-close-button>
+                </div>
+            </template>
+            <template if:true={buttonIsVisible}>
+                <div class="slds-align_absolute-center slds-p-bottom_medium">
+                    <c-create-button api-name = {objectName} record-id = {recordId}>
+                    </c-create-button>
                 </div>
             </template>
         </div>
